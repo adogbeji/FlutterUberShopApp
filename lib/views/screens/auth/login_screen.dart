@@ -8,6 +8,13 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          const Text(
+            'Login',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           TextFormField(
             decoration: const InputDecoration(
               labelText: 'Email Address',
