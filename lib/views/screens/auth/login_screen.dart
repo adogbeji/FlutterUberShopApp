@@ -7,12 +7,14 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
             'Login',
             style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
+              letterSpacing: 4,
             ),
           ),
           TextFormField(
