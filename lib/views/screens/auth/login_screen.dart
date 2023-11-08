@@ -27,6 +27,9 @@ class LoginScreen extends StatelessWidget {
               labelText: 'Password',
             ),
           ),
+          Container(
+            height: 50,
+          ),
         ],
       ),
     );
