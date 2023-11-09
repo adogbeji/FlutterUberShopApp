@@ -29,6 +29,10 @@ class LoginScreen extends StatelessWidget {
           ),
           Container(
             height: 50,
+            width: MediaQuery.of(context).size.width,
+            decoration: const BoxDecoration(
+              color: Colors.pink,
+            ),
           ),
         ],
       ),
