@@ -33,6 +33,8 @@ class LoginScreen extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Colors.pink,
             ),
+
+            child: const Text('Login'),
           ),
         ],
       ),
