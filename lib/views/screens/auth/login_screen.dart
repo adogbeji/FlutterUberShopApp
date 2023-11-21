@@ -22,10 +22,16 @@ class LoginScreen extends StatelessWidget {
               labelText: 'Email Address',
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
           TextFormField(
             decoration: const InputDecoration(
               labelText: 'Password',
             ),
+          ),
+          const SizedBox(
+            height: 20,
           ),
           Container(
             height: 50,
