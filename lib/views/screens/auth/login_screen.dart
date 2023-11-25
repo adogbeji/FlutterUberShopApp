@@ -38,21 +38,26 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width - 40,
-              decoration: BoxDecoration(
-                color: Colors.pink,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Center(
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    letterSpacing: 4,
-                    fontWeight: FontWeight.bold,
+            InkWell(
+              onTap: () {
+                print('Logged In!');
+              },
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width - 40,
+                decoration: BoxDecoration(
+                  color: Colors.pink,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      letterSpacing: 4,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
