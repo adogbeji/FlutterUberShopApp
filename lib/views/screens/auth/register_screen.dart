@@ -6,6 +6,10 @@ class RegisterScreen extends StatelessWidget {
   // const RegisterScreen({super.key});
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  late String email;
+  late String fullName;
+  late String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
