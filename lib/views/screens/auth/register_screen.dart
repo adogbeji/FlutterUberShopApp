@@ -114,7 +114,9 @@ class RegisterScreen extends StatelessWidget {
             InkWell(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
-                  print('Valid!');
+                  print(email);
+                  print(fullName);
+                  print(password);
                 } else {
                   print('Not Valid!');
                 }
