@@ -74,6 +74,9 @@ class LoginScreen extends StatelessWidget {
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
                     print('Logged In');
+
+                    print(email);
+                    print(password);
                   } else {
                     print('Authentication Failed!');
                   }
