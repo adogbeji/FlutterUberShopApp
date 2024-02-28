@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:uber_shop_app/controllers/auth_controller.dart';
+// import '../../../controllers/auth_controller.dart';
 
 import './login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
+  final AuthController _authController = AuthController();
+
   // const RegisterScreen({super.key});
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
