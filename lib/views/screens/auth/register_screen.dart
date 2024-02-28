@@ -118,9 +118,8 @@ class RegisterScreen extends StatelessWidget {
             InkWell(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
-                  print(email);
-                  print(fullName);
-                  print(password);
+                  _authController.createNewUser(email, fullName, password);
+                  print('Success');
                 } else {
                   print('Not Valid!');
                 }
