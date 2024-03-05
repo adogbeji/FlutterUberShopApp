@@ -11,7 +11,7 @@ class AuthController {
     try {
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
 
-      _firestore.collection('buyers').doc(userCredential.user!.uid).set({
+      await _firestore.collection('buyers').doc(userCredential.user!.uid).set({
         'fullName': fullName,
         'email': email,
         'buyerId': userCredential.user!.uid,
