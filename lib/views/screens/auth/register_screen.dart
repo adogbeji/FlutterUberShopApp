@@ -30,11 +30,19 @@ class RegisterScreen extends StatelessWidget {
                 letterSpacing: 4,
               ),
             ),
-        
+
+            const CircleAvatar(
+              radius: 65,
+              child: Icon(
+                Icons.person,
+                size: 55,
+              ),
+            ),
+
             const SizedBox(
               height: 20,
             ),
-            
+
             // EMAIL INPUT FIELD
             TextFormField(
               onChanged: (value) {
@@ -46,7 +54,7 @@ class RegisterScreen extends StatelessWidget {
                 } else {
                   return null;
                 }
-              } ,
+              },
               decoration: const InputDecoration(
                 labelText: 'Email Address',
                 hintText: 'Enter Email Address',
@@ -57,11 +65,11 @@ class RegisterScreen extends StatelessWidget {
                 // border: OutlineInputBorder(),
               ),
             ),
-        
+
             const SizedBox(
               height: 20,
             ),
-            
+
             // NAME INPUT FIELD
             TextFormField(
               onChanged: (value) {
@@ -83,11 +91,11 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
-        
+
             const SizedBox(
               height: 20,
             ),
-            
+
             // PASSWORD INPUT FIELD
             TextFormField(
               onChanged: (value) {
@@ -109,11 +117,11 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
-        
+
             const SizedBox(
               height: 20,
             ),
-        
+
             // REGISTER BUTTON
             InkWell(
               onTap: () {
@@ -144,16 +152,19 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
-        
+
             const SizedBox(
               height: 20,
             ),
-        
+
             TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return LoginScreen();
-                }),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return LoginScreen();
+                  }),
+                );
               },
               child: const Text(
                 'Already have an account?',
