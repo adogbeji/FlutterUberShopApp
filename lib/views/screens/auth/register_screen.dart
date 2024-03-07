@@ -31,17 +31,21 @@ class RegisterScreen extends StatelessWidget {
               ),
             ),
 
-            const Stack(
-              children: [
-                CircleAvatar(
-              radius: 65,
-              child: Icon(
-                Icons.person,
-                size: 55,
+            const Stack(children: [
+              CircleAvatar(
+                radius: 65,
+                child: Icon(
+                  Icons.person,
+                  size: 55,
+                ),
               ),
-            ),
-              ]
-            ),
+              Positioned(
+                right: 0,
+                child: Icon(
+                  Icons.photo_album,
+                ),
+              ),
+            ]),
 
             const SizedBox(
               height: 20,
