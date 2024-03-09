@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uber_shop_app/controllers/auth_controller.dart';
 // import '../../../controllers/auth_controller.dart';
@@ -31,18 +32,23 @@ class RegisterScreen extends StatelessWidget {
               ),
             ),
 
+            const SizedBox(
+              height: 15,
+            ),
+
             const Stack(children: [
               CircleAvatar(
                 radius: 65,
                 child: Icon(
                   Icons.person,
-                  size: 55,
+                  size: 70,
                 ),
               ),
               Positioned(
                 right: 0,
+                top: 15,
                 child: Icon(
-                  Icons.photo_album,
+                  CupertinoIcons.camera_fill,
                 ),
               ),
             ]),
