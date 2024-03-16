@@ -1,9 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AuthController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  // Select image from gallery or camera
+
+  pickProfileImage(ImageSource source) {
+    final ImagePicker _imagePicker = ImagePicker();
+  }
 
   Future<String> createNewUser(String email, String fullName, String password) async {
     String res = 'Some error occurred!';
