@@ -11,7 +11,7 @@ class AuthController {
   pickProfileImage(ImageSource source) async {
     final ImagePicker _imagePicker = ImagePicker();
 
-    await _imagePicker.pickImage(source: source);
+    XFile? _file = await _imagePicker.pickImage(source: source);
   }
 
   Future<String> createNewUser(String email, String fullName, String password) async {
