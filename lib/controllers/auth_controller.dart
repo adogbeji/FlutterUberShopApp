@@ -7,11 +7,16 @@ class AuthController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // Select image from gallery or camera
-
   pickProfileImage(ImageSource source) async {
-    final ImagePicker _imagePicker = ImagePicker();
+    final ImagePicker _imagePicker = ImagePicker();  // Stores image_picker package
 
-    XFile? _file = await _imagePicker.pickImage(source: source);
+    XFile? _file = await _imagePicker.pickImage(source: source);  // Stores selected image
+
+    if (_file != null) {
+      return await _file.readAsBytes();  // Converts selected image to readable format
+    } else {
+      print('No image selected!');
+    }
   }
 
   Future<String> createNewUser(String email, String fullName, String password) async {
