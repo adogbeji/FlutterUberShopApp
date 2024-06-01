@@ -31,6 +31,18 @@ class LoginScreen extends StatelessWidget {
               labelText: 'Password',
             ),
           ),
+
+          // LOGIN BUTTON
+          Container(
+            height: 50,
+            width: MediaQuery.of(context).size.width - 40,
+            decoration: const BoxDecoration(
+              color: Colors.pink,
+            ),
+            child: const Center(
+              child: Text('Log In'),
+            ),
+          ),
         ],
       ),
     );
