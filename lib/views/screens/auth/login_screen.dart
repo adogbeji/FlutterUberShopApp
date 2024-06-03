@@ -25,12 +25,16 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
 
+          const SizedBox(height: 20,),
+
           // PASSWORD INPUT FIELD
           TextFormField(
             decoration: const InputDecoration(
               labelText: 'Password',
             ),
           ),
+
+          const SizedBox(height: 20,),
 
           // LOGIN BUTTON
           Container(
