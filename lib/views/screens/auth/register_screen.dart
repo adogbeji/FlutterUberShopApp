@@ -5,9 +5,63 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Register Screen'),
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text(
+            'Register',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 4,
+            ),
+          ),
+
+          const SizedBox(
+            height: 20,
+          ),
+
+          // EMAIL INPUT FIELD
+          TextFormField(
+            decoration: const InputDecoration(
+              labelText: 'Email Address',
+              hintText: 'Enter Email Address',
+              prefixIcon: Icon(
+                Icons.email,
+                color: Colors.pink,
+              ),
+            ),
+          ),
+
+          const SizedBox(
+            height: 20,
+          ),
+
+          // NAME INPUT FIELD
+          TextFormField(
+            decoration: const InputDecoration(
+              labelText: 'Full Name',
+              hintText: 'Enter Full Name',
+              prefixIcon: Icon(
+                Icons.person,
+                color: Colors.pink,
+              ),
+            ),
+          ),
+
+          const SizedBox(
+            height: 20,
+          ),
+
+          TextFormField(
+            decoration: const InputDecoration(
+              labelText: 'Password',
+              hintText: 'Enter Password',
+              prefixIcon: Icon(Icons.lock, color: Colors.pink,),
+            ),
+          ),
+        ],
       ),
     );
   }
