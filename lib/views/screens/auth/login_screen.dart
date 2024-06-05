@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:uber_shop_app/views/screens/auth/register_screen.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -73,9 +75,18 @@ class LoginScreen extends StatelessWidget {
             ),
 
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const RegisterScreen();
+                    },
+                  ),
+                );
+              },
               child: const Text('Need An Account?'),
-            )
+            ),
           ],
         ),
       ),
