@@ -54,13 +54,46 @@ class RegisterScreen extends StatelessWidget {
             height: 20,
           ),
 
+          // PASSWORD INPUT FIELD
           TextFormField(
             decoration: const InputDecoration(
               labelText: 'Password',
               hintText: 'Enter Password',
-              prefixIcon: Icon(Icons.lock, color: Colors.pink,),
+              prefixIcon: Icon(
+                Icons.lock,
+                color: Colors.pink,
+              ),
             ),
           ),
+
+          const SizedBox(
+            height: 20,
+          ),
+
+          // REGISTER BUTTON
+          Container(
+            height: 50,
+            width: MediaQuery.of(context).size.width - 40,
+            decoration: BoxDecoration(
+              color: Colors.pink,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: const Center(
+              child: Text(
+                'Register',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  letterSpacing: 4,
+                ),
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 20,),
+
+          TextButton(onPressed: () {}, child: const Text('Already Have An Account?'),),
         ],
       ),
     );
