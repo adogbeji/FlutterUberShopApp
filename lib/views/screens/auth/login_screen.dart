@@ -30,6 +30,11 @@ class LoginScreen extends StatelessWidget {
             TextFormField(
               decoration: const InputDecoration(
                 labelText: 'Email',
+                hintText: 'Enter Email Address',
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: Colors.pink,
+                ),
               ),
             ),
 
@@ -41,6 +46,11 @@ class LoginScreen extends StatelessWidget {
             TextFormField(
               decoration: const InputDecoration(
                 labelText: 'Password',
+                hintText: 'Enter Password',
+                prefixIcon: Icon(
+                  Icons.lock,
+                  color: Colors.pink,
+                ),
               ),
             ),
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
+
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
@@ -91,9 +93,23 @@ class RegisterScreen extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
 
-          TextButton(onPressed: () {}, child: const Text('Already Have An Account?'),),
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const LoginScreen();
+                  },
+                ),
+              );
+            },
+            child: const Text('Already Have An Account?'),
+          ),
         ],
       ),
     );
