@@ -6,6 +6,11 @@ class RegisterScreen extends StatelessWidget {
   // const RegisterScreen({super.key});
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form Key
 
+  // Variables to store user input
+  late String email;
+  late String fullName;
+  late String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +34,9 @@ class RegisterScreen extends StatelessWidget {
         
             // EMAIL INPUT FIELD
             TextFormField(
+              onChanged: (value) {
+                email = value;
+              },
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Email Address Must Not Be Empty!';
@@ -52,6 +60,9 @@ class RegisterScreen extends StatelessWidget {
         
             // NAME INPUT FIELD
             TextFormField(
+              onChanged: (value) {
+                fullName = value;
+              },
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Name Must Not Be Empty!';
@@ -75,6 +86,9 @@ class RegisterScreen extends StatelessWidget {
         
             // PASSWORD INPUT FIELD
             TextFormField(
+              onChanged: (value) {
+                password = value;
+              },
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Password Must Not Be Empty!';
@@ -100,7 +114,10 @@ class RegisterScreen extends StatelessWidget {
             InkWell(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
-                  print('Valid!');
+                  // print('Valid!');
+                  print(email);
+                  print(fullName);
+                  print(password);
                 } else {
                   print('Not Valid!');
                 }
