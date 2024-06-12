@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:uber_shop_app/views/screens/auth/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  // const LoginScreen({super.key});
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form Key
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,13 @@ class LoginScreen extends StatelessWidget {
 
             // EMAIL INPUT FIELD
             TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Email Address Must Not Be Empty!';
+                } else {
+                  return null;
+                }
+              },
               decoration: const InputDecoration(
                 labelText: 'Email',
                 hintText: 'Enter Email Address',
@@ -44,6 +52,13 @@ class LoginScreen extends StatelessWidget {
 
             // PASSWORD INPUT FIELD
             TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Password Must Not Be Empty!';
+                } else {
+                  return null;
+                }
+              },
               decoration: const InputDecoration(
                 labelText: 'Password',
                 hintText: 'Enter Password',

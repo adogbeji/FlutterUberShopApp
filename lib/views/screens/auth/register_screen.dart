@@ -136,7 +136,7 @@ class RegisterScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return const LoginScreen();
+                      return LoginScreen();
                     },
                   ),
                 );
