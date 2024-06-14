@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:uber_shop_app/controllers/auth_controller.dart';
 import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   // const RegisterScreen({super.key});
+  final AuthController _authController = AuthController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form Key
 
   // Variables to store user input
@@ -114,10 +116,7 @@ class RegisterScreen extends StatelessWidget {
             InkWell(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
-                  // print('Valid!');
-                  print(email);
-                  print(fullName);
-                  print(password);
+                  _authController.createNewUser(email, fullName, password);
                 } else {
                   print('Not Valid!');
                 }
