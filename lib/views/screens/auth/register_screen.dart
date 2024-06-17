@@ -6,7 +6,7 @@ import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
 class RegisterScreen extends StatelessWidget {
   // const RegisterScreen({super.key});
   final AuthController _authController = AuthController();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form Key
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Form Key
 
   // Variables to store user input
   late String email;
@@ -31,16 +31,32 @@ class RegisterScreen extends StatelessWidget {
                   letterSpacing: 4,
                 ),
               ),
-        
-              const CircleAvatar(
-                radius: 65,
-                child: Icon(Icons.person, size: 55,),
+
+              const SizedBox(height: 15,),
+
+              const Stack(
+                children: [
+                  CircleAvatar(
+                    radius: 65,
+                    child: Icon(
+                      Icons.person,
+                      size: 60,
+                    ),
+                  ),
+                  Positioned(
+                    right: 0,
+                    top: 15,
+                    child: Icon(
+                      Icons.camera_alt,
+                    ),
+                  ),
+                ],
               ),
-          
+
               const SizedBox(
                 height: 20,
               ),
-          
+
               // EMAIL INPUT FIELD
               TextFormField(
                 onChanged: (value) {
@@ -62,11 +78,11 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
               ),
-          
+
               const SizedBox(
                 height: 20,
               ),
-          
+
               // NAME INPUT FIELD
               TextFormField(
                 onChanged: (value) {
@@ -88,11 +104,11 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
               ),
-          
+
               const SizedBox(
                 height: 20,
               ),
-          
+
               // PASSWORD INPUT FIELD
               TextFormField(
                 onChanged: (value) {
@@ -114,11 +130,11 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
               ),
-          
+
               const SizedBox(
                 height: 20,
               ),
-          
+
               // REGISTER BUTTON
               InkWell(
                 onTap: () {
@@ -148,11 +164,11 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
               ),
-          
+
               const SizedBox(
                 height: 20,
               ),
-          
+
               TextButton(
                 onPressed: () {
                   Navigator.push(
