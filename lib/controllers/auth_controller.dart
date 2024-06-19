@@ -10,7 +10,14 @@ class AuthController {
   pickProfileImage(ImageSource source) async {
     final ImagePicker _imagePicker = ImagePicker();  // Stores image_picker package
 
-    await _imagePicker.pickImage(source: source);
+    XFile? _file = await _imagePicker.pickImage(source: source);  // Stores picked image
+
+    // Checking if image was successfully selected or captured
+    if (_file != null) {
+      return await _file.readAsBytes();  // Converts selected image to bytes
+    } else {
+      print('No Image Selected or Captured!');
+    }
   }
   
   // CREATES NEW USER
