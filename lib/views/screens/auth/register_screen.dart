@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 
+import 'package:image_picker/image_picker.dart';
+
 import 'package:uber_shop_app/controllers/auth_controller.dart';
 import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   // const RegisterScreen({super.key});
-  final AuthController _authController = AuthController();
+  final AuthController _authController = AuthController();  // Stores AuthController class
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Form Key
 
   // Variables to store user input
   late String email;
   late String fullName;
   late String password;
+
+  selectProfileImage() async {
+    await _authController.pickProfileImage(ImageSource.gallery);
+  }
 
   @override
   Widget build(BuildContext context) {
