@@ -7,7 +7,8 @@ import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   // const RegisterScreen({super.key});
-  final AuthController _authController = AuthController();  // Stores AuthController class
+  final AuthController _authController =
+      AuthController(); // Stores AuthController class
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Form Key
 
   // Variables to store user input
@@ -15,8 +16,14 @@ class RegisterScreen extends StatelessWidget {
   late String fullName;
   late String password;
 
-  selectProfileImage() async {
+  // Selects image from phone gallery
+  selectGalleryImage() async {
     await _authController.pickProfileImage(ImageSource.gallery);
+  }
+
+  // Captures image with phone camera
+  captureImage() async {
+    await _authController.pickProfileImage(ImageSource.camera);
   }
 
   @override
@@ -38,11 +45,13 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 15,),
+              const SizedBox(
+                height: 15,
+              ),
 
-              const Stack(
+              Stack(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 65,
                     child: Icon(
                       Icons.person,
@@ -50,10 +59,17 @@ class RegisterScreen extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    right: 0,
-                    top: 15,
-                    child: Icon(
-                      Icons.camera_alt,
+                    // right: 0,
+                    // top: 15,
+                    right: -5,
+                    top: 1,
+                    child: IconButton(
+                      onPressed: () {
+                        selectGalleryImage();
+                      },
+                      icon: const Icon(
+                        Icons.camera_alt,
+                      ),
                     ),
                   ),
                 ],
