@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:image_picker/image_picker.dart';
@@ -7,8 +8,7 @@ import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   // const RegisterScreen({super.key});
-  final AuthController _authController =
-      AuthController(); // Stores AuthController class
+  final AuthController _authController = AuthController(); // Stores AuthController class
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Form Key
 
   // Variables to store user input
@@ -16,9 +16,11 @@ class RegisterScreen extends StatelessWidget {
   late String fullName;
   late String password;
 
+  Uint8List? _image;  // Stores picked image
+
   // Selects image from phone gallery
   selectGalleryImage() async {
-    await _authController.pickProfileImage(ImageSource.gallery);
+    Uint8List im = await _authController.pickProfileImage(ImageSource.gallery);
   }
 
   // Captures image with phone camera
