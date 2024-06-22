@@ -15,7 +15,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   // const RegisterScreen({super.key});
   final AuthController _authController = AuthController();  // Stores AuthController class
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form Key
-  
+
   late String email;
 
   late String fullName;
@@ -26,7 +26,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
 
   selectGalleryImage() async {
-    Uint8List im = await _authController.pickProfileImage(ImageSource.gallery);
+    Uint8List im = await _authController.pickProfileImage(ImageSource.gallery);  // Stores picked image
+
+    setState(() {
+      _image = im;  // Picked image assigned to _image (above)
+    });
   }
 
   // Captures image with phone camera
@@ -59,12 +63,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               Stack(
                 children: [
-                  const CircleAvatar(
+                  _image == null ? const CircleAvatar(
                     radius: 65,
                     child: Icon(
                       Icons.person,
                       size: 60,
                     ),
+                  ): CircleAvatar(
+                    radius: 65,
+                    backgroundImage: MemoryImage(_image!),
                   ),
                   Positioned(
                     // right: 0,
