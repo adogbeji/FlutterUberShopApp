@@ -24,7 +24,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   Uint8List? _image;  // Stores picked image
 
-
+  // Selects image from phone gallery
   selectGalleryImage() async {
     Uint8List im = await _authController.pickProfileImage(ImageSource.gallery);  // Stores picked image
 
@@ -35,7 +35,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   // Captures image with phone camera
   captureImage() async {
-    await _authController.pickProfileImage(ImageSource.camera);
+    Uint8List im = await _authController.pickProfileImage(ImageSource.camera);  // Stores captured image
+
+    setState(() {
+      _image = im;  // Picked image assigned to _image (above)
+    });
   }
 
   @override
