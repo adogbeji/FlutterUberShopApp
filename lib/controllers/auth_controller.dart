@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AuthController {
+  final FirebaseStorage _storage = FirebaseStorage.instance;  // Stores firebase_storage package
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;  // Stores cloud_firestore package
   final FirebaseAuth _auth = FirebaseAuth.instance;  // Stores firebase_auth package
   
@@ -19,6 +21,8 @@ class AuthController {
       print('No Image Selected or Captured!');
     }
   }
+
+  // UPLOADS PROFILE IMAGE TO FIREBASE STORAGE  
   
   // CREATES NEW USER
   Future<String> createNewUser(String email, String fullName, String password) async {
