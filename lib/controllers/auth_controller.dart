@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -23,9 +25,12 @@ class AuthController {
   }
 
   // UPLOADS PROFILE IMAGE TO FIREBASE STORAGE  
+  uploadImageToStorage(Uint8List? image) {
+    _storage.ref().child('profileImages');
+  }
   
   // CREATES NEW USER
-  Future<String> createNewUser(String email, String fullName, String password) async {
+  Future<String> createNewUser(String email, String fullName, String password, Uint8List image) async {
     String res = 'Some error occurred';
 
     try {
