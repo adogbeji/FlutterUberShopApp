@@ -26,7 +26,7 @@ class AuthController {
 
   // UPLOADS PROFILE IMAGE TO FIREBASE STORAGE  
   uploadImageToStorage(Uint8List? image) {
-    _storage.ref().child('profileImages');
+    _storage.ref().child('profileImages').child(_auth.currentUser!.uid);
   }
   
   // CREATES NEW USER
