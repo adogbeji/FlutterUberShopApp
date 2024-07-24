@@ -41,25 +41,32 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 20,),
         
             // LOGIN BUTTON
-            Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width - 40,
-              decoration: BoxDecoration(
-                color: Colors.pink,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Center(
-                child: Text(
-                  'Log In',
-                  style: TextStyle(
-                    fontSize: 22,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 4,
+            InkWell(
+              onTap: () {
+                print('Pressed!');
+              },
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width - 40,
+                decoration: BoxDecoration(
+                  color: Colors.pink,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Log In',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 4,
+                    ),
                   ),
                 ),
               ),
             ),
+
+            TextButton(onPressed: () {}, child: const Text('Need An Account?'),),
           ],
         ),
       ),
