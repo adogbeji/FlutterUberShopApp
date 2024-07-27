@@ -6,8 +6,14 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text('Register Screen'),
+      body: Column(
+        children: [
+          Text('Register', style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 4,
+          ),),
+        ],
       ),
     );
   }
