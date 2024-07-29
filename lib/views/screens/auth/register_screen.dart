@@ -50,6 +50,16 @@ class RegisterScreen extends StatelessWidget {
               prefixIcon: Icon(Icons.lock, color: Colors.pink,),
             ),
           ),
+
+          const SizedBox(height: 20,),
+
+          Container(
+            height: 50,
+            width: MediaQuery.of(context).size.width - 40,
+            decoration: const BoxDecoration(
+              color: Colors.pink,
+            ),
+          ),
         ],
       ),
     );
