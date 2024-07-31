@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -56,10 +57,27 @@ class RegisterScreen extends StatelessWidget {
           Container(
             height: 50,
             width: MediaQuery.of(context).size.width - 40,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.pink,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: const Center(
+              child: Text('Register', style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 4,
+              ),),
             ),
           ),
+
+          const SizedBox(height: 20,),
+
+          TextButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const LoginScreen();
+            }),);
+          }, child: const Text('Already have an account?'),),
         ],
       ),
     );
