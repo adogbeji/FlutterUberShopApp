@@ -26,8 +26,17 @@ class LoginScreen extends StatelessWidget {
 
             // EMAIL INPUT FIELD
             TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Email Must Not Be Empty!';
+                } else {
+                  return null;
+                }
+              },
               decoration: const InputDecoration(
                 labelText: 'Email',
+                hintText: 'Enter Email...',
+                prefixIcon: Icon(Icons.email, color: Colors.pink,),
               ),
             ),
 
@@ -35,8 +44,17 @@ class LoginScreen extends StatelessWidget {
 
             // PASSWORD INPUT FIELD
             TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Password Must Not Be Empty!';
+                } else {
+                  return null;
+                }
+              },
               decoration: const InputDecoration(
                 labelText: 'Password',
+                hintText: 'Enter Password...',
+                prefixIcon: Icon(Icons.lock, color: Colors.pink,),
               ),
             ),
 
