@@ -79,6 +79,13 @@ class RegisterScreen extends StatelessWidget {
             const SizedBox(height: 20,),
         
             InkWell(
+              onTap: () {
+                if (_formKey.currentState!.validate()) {
+                  print('Valid!');
+                } else {
+                  print('Not Valid!');
+                }
+              },
               child: Container(
                 height: 50,
                 width: MediaQuery.of(context).size.width - 40,
