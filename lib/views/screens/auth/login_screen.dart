@@ -66,7 +66,11 @@ class LoginScreen extends StatelessWidget {
               // LOGIN BUTTON
               InkWell(
                 onTap: () {
-                  print('Pressed!');
+                  if (_formKey.currentState!.validate()) {
+                    print('Valid!');
+                  } else {
+                    print('Not Valid!');
+                  }
                 },
                 child: Container(
                   height: 50,
