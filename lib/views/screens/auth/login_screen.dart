@@ -6,6 +6,10 @@ class LoginScreen extends StatelessWidget {
   // const LoginScreen({super.key});
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form Key
 
+  late String email;
+
+  late String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +33,9 @@ class LoginScreen extends StatelessWidget {
           
               // EMAIL INPUT FIELD
               TextFormField(
+                onChanged: (value) {
+                  email = value;
+                },
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Email Must Not Be Empty!';
@@ -47,6 +54,9 @@ class LoginScreen extends StatelessWidget {
           
               // PASSWORD INPUT FIELD
               TextFormField(
+                onChanged: (value) {
+                  password = value;
+                },
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Password Must Not Be Empty!';
