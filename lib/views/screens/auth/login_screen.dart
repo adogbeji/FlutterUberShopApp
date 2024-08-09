@@ -77,7 +77,10 @@ class LoginScreen extends StatelessWidget {
               InkWell(
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
-                    print('Valid!');
+                    // print('Valid!');
+
+                    print(email);
+                    print(password);
                   } else {
                     print('Not Valid!');
                   }
