@@ -4,8 +4,7 @@ import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   // const RegisterScreen({super.key});
-  final AuthController _authController =
-      AuthController(); // Stores AuthController class
+  final AuthController _authController = AuthController(); // Stores AuthController class
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Form Key
 
   late String email;
@@ -13,6 +12,9 @@ class RegisterScreen extends StatelessWidget {
   late String fullName;
 
   late String password;
+
+
+  selectProfileImage() async {}
 
   @override
   Widget build(BuildContext context) {

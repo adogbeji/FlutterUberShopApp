@@ -14,6 +14,8 @@ class AuthController {
 
     if (_file != null) {
       return await _file.readAsBytes();  // Converts picked image into readable format
+    } else {
+      print('No image selected or captured!');
     }
   }
 
