@@ -28,11 +28,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
   // Selects image from phone gallery
   selectGalleryImage() async {
     Uint8List im = await _authController.pickProfileImage(ImageSource.gallery);
+
+    setState(() {
+      _image = im;
+    });
   }
 
   // Captures image using phone camera
   captureImage() async {
-    await _authController.pickProfileImage(ImageSource.camera);
+    Uint8List im = await _authController.pickProfileImage(ImageSource.camera);
+
+    setState(() {
+      _image = im;
+    });
   }
 
   @override
@@ -58,12 +66,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               Stack(
                 children: [
-                  const CircleAvatar(
+                  _image == null ? const CircleAvatar(
                     radius: 65,
                     child: Icon(
                       Icons.person,
                       size: 60,
                     ),
+                  ): CircleAvatar(
+                    radius: 65,
+                    // child: Icon(
+                    //   Icons.person,
+                    //   size: 60,
+                    // ),
+                    backgroundImage: MemoryImage(_image!),
                   ),
                   Positioned(
                     // right: 0,
