@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'package:image_picker/image_picker.dart';
+
 import 'package:uber_shop_app/controllers/auth_controller.dart';
 import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
 
@@ -13,8 +16,15 @@ class RegisterScreen extends StatelessWidget {
 
   late String password;
 
+  // Picks image from phone gallery
+  selectGalleryImage() async {
+    await _authController.pickProfileImage(ImageSource.gallery);
+  }
 
-  selectProfileImage() async {}
+  // Captures image phone camera
+  captureImage() async {
+    await _authController.pickProfileImage(ImageSource.camera);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +47,9 @@ class RegisterScreen extends StatelessWidget {
 
               const SizedBox(height: 15,),
 
-              const Stack(
+              Stack(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 65,
                     child: Icon(
                       Icons.person,
@@ -48,9 +58,16 @@ class RegisterScreen extends StatelessWidget {
                   ),
                   Positioned(
                     // right: 0,
-                    right: 3,
+                    // right: 3,
+                    right: -14,
                     top: 15,
-                    child: Icon(Icons.camera_alt),
+                    // child: Icon(Icons.camera_alt),
+                    child: IconButton(
+                      onPressed: () {
+                        selectGalleryImage();
+                      },
+                      icon: const Icon(Icons.camera_alt),
+                    ),
                   ),
                 ],
               ),
