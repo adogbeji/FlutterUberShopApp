@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:image_picker/image_picker.dart';
@@ -5,10 +6,15 @@ import 'package:image_picker/image_picker.dart';
 import 'package:uber_shop_app/controllers/auth_controller.dart';
 import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
   // const RegisterScreen({super.key});
-  final AuthController _authController = AuthController(); // Stores AuthController class
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Form Key
+  final AuthController _authController = AuthController();  // Stores AuthController class
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form Key
 
   late String email;
 
@@ -16,12 +22,15 @@ class RegisterScreen extends StatelessWidget {
 
   late String password;
 
-  // Picks image from phone gallery
+  Uint8List? _image;  // Stores picked image
+
+
+  // Selects image from phone gallery
   selectGalleryImage() async {
-    await _authController.pickProfileImage(ImageSource.gallery);
+    Uint8List im = await _authController.pickProfileImage(ImageSource.gallery);
   }
 
-  // Captures image phone camera
+  // Captures image using phone camera
   captureImage() async {
     await _authController.pickProfileImage(ImageSource.camera);
   }
