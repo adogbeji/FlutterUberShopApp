@@ -1,10 +1,14 @@
+import 'package:flutter/foundation.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AuthController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;  // Stores cloud_firestore package
   final FirebaseAuth _auth = FirebaseAuth.instance;  // Stores firebase_auth package
+  final FirebaseStorage _storage = FirebaseStorage.instance;  // Stores firebase_storage package
 
   // Selects image from phone gallery or captures image with phone camera
   pickProfileImage(ImageSource source) async {
@@ -19,8 +23,22 @@ class AuthController {
     }
   }
 
+  // Uploads profile image to Firebase Storage
+  uploadImageToStorage(Uint8List? image) async {
+    Reference ref = _storage.ref()
+                            .child('profileImages')
+                            .child(_auth.currentUser!.uid);
+
+    UploadTask uploadTask = ref.putData(image!);  // Stores result of uploaded image
+
+    TaskSnapshot snapshot = await uploadTask;
+    String downloadURL = await snapshot.ref.getDownloadURL();  // Stores image download URL
+
+    return downloadURL;
+  }
+
   // Creates New User
-  Future<String> createNewUser(String email, String fullName, String password) async {
+  Future<String> createNewUser(String email, String fullName, String password, Uint8List? image) async {
     String res = 'An error occurred';
 
     try {
