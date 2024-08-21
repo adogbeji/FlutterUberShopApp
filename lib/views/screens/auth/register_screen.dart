@@ -178,7 +178,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               InkWell(
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
-                    _authController.createNewUser(email, fullName, password);
+                    _authController.createNewUser(email, fullName, password, _image);
                     print('Valid');
                   } else {
                     print('Not Valid!');

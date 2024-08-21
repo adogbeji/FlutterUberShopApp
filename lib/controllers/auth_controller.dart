@@ -24,7 +24,7 @@ class AuthController {
   }
 
   // Uploads profile image to Firebase Storage
-  uploadImageToStorage(Uint8List? image) async {
+  _uploadImageToStorage(Uint8List? image) async {
     Reference ref = _storage.ref()
                             .child('profileImages')
                             .child(_auth.currentUser!.uid);
@@ -47,8 +47,11 @@ class AuthController {
         password: password
       );  // Creates new user
 
+      String downloadURL = await _uploadImageToStorage(image);  // Stores image download URL
+
       await _firestore.collection('buyers').doc(userCredential.user!.uid).set({
         'fullName': fullName,
+        'profileImage': downloadURL,
         'email': email,
         'buyerId': userCredential.user!.uid,
       });  // Stores user details in Firestore database
