@@ -43,6 +43,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
   }
 
+  registerUser() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
