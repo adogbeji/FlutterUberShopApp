@@ -43,7 +43,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
   }
 
-  registerUser() {}
+  registerUser() {
+    if (_image != null) {
+      if (_formKey.currentState!.validate()) {
+        _authController.createNewUser(email, fullName, password, _image);
+        print('Valid');
+      } else {
+        print('Not Valid!');
+      }
+    } else {
+      print('No image picked!');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -181,12 +192,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               
                   InkWell(
                     onTap: () {
-                      if (_formKey.currentState!.validate()) {
-                        _authController.createNewUser(email, fullName, password, _image);
-                        print('Valid');
-                      } else {
-                        print('Not Valid!');
-                      }
+                      registerUser();
                     },
                     child: Container(
                       height: 50,
