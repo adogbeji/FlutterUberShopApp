@@ -43,11 +43,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
   }
 
-  registerUser() {
+  // Calls method in AuthController class to create new user account
+  registerUser() async {
     if (_image != null) {
       if (_formKey.currentState!.validate()) {
-        _authController.createNewUser(email, fullName, password, _image);
-        print('Valid');
+        String res = await _authController.createNewUser(email, fullName, password, _image);
+
+        if (res == 'Success') {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return LoginScreen();
+          }),);
+        }
       } else {
         print('Not Valid!');
       }
