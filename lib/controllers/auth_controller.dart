@@ -63,4 +63,7 @@ class AuthController {
 
     return res;
   }
+
+  // Log In Created User
+  Future<String> loginUser(String email, String password) {}
 }
