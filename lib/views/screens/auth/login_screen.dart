@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:uber_shop_app/controllers/auth_controller.dart';
 import 'package:uber_shop_app/views/screens/auth/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   // const LoginScreen({super.key});
+  final AuthController _authController = AuthController();  // Stores AuthController class
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form Key
 
   late String email;
