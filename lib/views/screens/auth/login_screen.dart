@@ -12,6 +12,17 @@ class LoginScreen extends StatelessWidget {
 
   late String password;
 
+  // Calls method in AuthController class to log in user
+  loginUser() async {
+    if (_formKey.currentState!.validate()) {
+      String res = await _authController.loginUser(email, password);
+
+      if (res == 'Success') {
+        print('Logged In!');
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,14 +89,7 @@ class LoginScreen extends StatelessWidget {
               // LOGIN BUTTON
               InkWell(
                 onTap: () {
-                  if (_formKey.currentState!.validate()) {
-                    // print('Valid!');
-
-                    print(email);
-                    print(password);
-                  } else {
-                    print('Not Valid!');
-                  }
+                  loginUser();
                 },
                 child: Container(
                   height: 50,
