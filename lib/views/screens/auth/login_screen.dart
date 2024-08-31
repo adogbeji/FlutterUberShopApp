@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:get/get.dart';
+
 import 'package:uber_shop_app/controllers/auth_controller.dart';
 import 'package:uber_shop_app/views/screens/auth/register_screen.dart';
 
@@ -18,7 +20,8 @@ class LoginScreen extends StatelessWidget {
       String res = await _authController.loginUser(email, password);
 
       if (res == 'Success') {
-        print('Logged In!');
+        // print('Logged In!');
+        Get.snackbar('Login Success', 'You are now logged in!');
       }
     }
   }
