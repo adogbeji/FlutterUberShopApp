@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
 
       if (res == 'Success') {
         // print('Logged In!');
-        Get.snackbar('Login Success', 'You are now logged in!');
+        Get.snackbar('Login Success', 'You are now logged in!', backgroundColor: Colors.pink);
       }
     }
   }
