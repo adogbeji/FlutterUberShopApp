@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:uber_shop_app/controllers/auth_controller.dart';
@@ -53,12 +54,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return LoginScreen();
           }),);
+
+          Get.snackbar(
+            'Success', 
+            'Account has been created!', 
+            backgroundColor: Colors.pink, 
+            colorText: Colors.white,
+            margin: const EdgeInsets.all(15),
+          );
+        } else {
+          // Get.snackbar('Error Occured', res.toString());
+
+          Get.snackbar(
+            'Error Occured', 
+            res.toString(),
+            backgroundColor: Colors.pink, 
+            colorText: Colors.white,
+            margin: const EdgeInsets.all(15),
+          );
         }
       } else {
-        print('Not Valid!');
+        // print('Not Valid!');
+        Get.snackbar('Form', 'Form field is not valid!');
       }
     } else {
-      print('No image picked!');
+      // print('No image picked!');
+      Get.snackbar('No Image', 'Please capture or select an image!');
     }
   }
 
