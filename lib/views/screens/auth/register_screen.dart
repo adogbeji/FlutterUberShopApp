@@ -51,9 +51,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         String res = await _authController.createNewUser(email, fullName, password, _image);
 
         if (res == 'Success') {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return LoginScreen();
-          }),);
+          // Navigator.push(context, MaterialPageRoute(builder: (context) {
+          //   return LoginScreen();
+          // }),);
+          Get.to(LoginScreen());
 
           Get.snackbar(
             'Success', 
