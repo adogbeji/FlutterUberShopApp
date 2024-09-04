@@ -71,15 +71,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
             backgroundColor: Colors.pink, 
             colorText: Colors.white,
             margin: const EdgeInsets.all(15),
+            snackPosition: SnackPosition.BOTTOM,
           );
         }
       } else {
         // print('Not Valid!');
-        Get.snackbar('Form', 'Form field is not valid!');
+        Get.snackbar(
+          'Form', 
+          'Form field is not valid!',
+          backgroundColor: Colors.pink, 
+          colorText: Colors.white,
+          margin: const EdgeInsets.all(15),
+        );
       }
     } else {
       // print('No image picked!');
-      Get.snackbar('No Image', 'Please capture or select an image!');
+      Get.snackbar(
+        'No Image', 
+        'Please capture or select an image!',
+        backgroundColor: Colors.pink, 
+        colorText: Colors.white,
+        margin: const EdgeInsets.all(15),
+      );
     }
   }
 
