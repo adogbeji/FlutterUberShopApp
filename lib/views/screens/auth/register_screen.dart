@@ -61,6 +61,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
             backgroundColor: Colors.pink, 
             colorText: Colors.white,
             margin: const EdgeInsets.all(15),
+            icon: const Icon(
+              Icons.message,
+              color: Colors.white,
+            ),
           );
         } else {
           // Get.snackbar('Error Occured', res.toString());
@@ -72,6 +76,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
             colorText: Colors.white,
             margin: const EdgeInsets.all(15),
             snackPosition: SnackPosition.BOTTOM,
+            icon: const Icon(
+              Icons.message,
+              color: Colors.white,
+            ),
           );
         }
       } else {
@@ -82,6 +90,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
           backgroundColor: Colors.pink, 
           colorText: Colors.white,
           margin: const EdgeInsets.all(15),
+          icon: const Icon(
+            Icons.message,
+            color: Colors.white,
+          ),
         );
       }
     } else {
@@ -92,6 +104,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: Colors.pink, 
         colorText: Colors.white,
         margin: const EdgeInsets.all(15),
+        snackPosition: SnackPosition.BOTTOM,
+        icon: const Icon(
+          Icons.message,
+          color: Colors.white,
+        ),
       );
     }
   }
