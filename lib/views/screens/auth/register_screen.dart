@@ -17,6 +17,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final AuthController _authController = AuthController();  // Stores AuthController class
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form Key
 
+  bool _isLoading = false;  // Stops loading spinner
+
   late String email;
 
   late String fullName;
@@ -48,12 +50,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
   registerUser() async {
     if (_image != null) {
       if (_formKey.currentState!.validate()) {
+        setState(() {
+          _isLoading = true;  // Starts loading spinner
+        });
+
         String res = await _authController.createNewUser(email, fullName, password, _image);
 
+        setState(() {
+          _isLoading = false;  // Stops loading spinner
+        });
+
         if (res == 'Success') {
-          // Navigator.push(context, MaterialPageRoute(builder: (context) {
-          //   return LoginScreen();
-          // }),);
+          setState(() {
+            _isLoading = false;  // Stops loading spinner
+          });
           Get.to(LoginScreen());
 
           Get.snackbar(
@@ -259,8 +269,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.pink,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Center(
-                        child: Text(
+                      child: Center(
+                        child: _isLoading ? const CircularProgressIndicator(
+                          color: Colors.white,
+                        ): const Text(
                           'Register',
                           style: TextStyle(
                             fontSize: 18,
