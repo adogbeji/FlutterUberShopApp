@@ -5,11 +5,18 @@ import 'package:get/get.dart';
 import 'package:uber_shop_app/controllers/auth_controller.dart';
 import 'package:uber_shop_app/views/screens/auth/register_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   // const LoginScreen({super.key});
   final AuthController _authController = AuthController();  // Stores AuthController class
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form Key
-
+  
+  bool _isLoading = false;  // Stops loading spinner
+  
   late String email;
 
   late String password;
@@ -17,10 +24,20 @@ class LoginScreen extends StatelessWidget {
   // Calls method in AuthController class to log in user
   loginUser() async {
     if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;  // Starts loading spinner
+      });
+
       String res = await _authController.loginUser(email, password);
 
+      setState(() {
+        _isLoading = false;  // Stops loading spinner
+      });
+
       if (res == 'Success') {
-        // print('Logged In!');
+        setState(() {
+          _isLoading = false;  // Stops loading spinner
+        });
         Get.snackbar(
           'Login Success', 
           'You are now logged in!', 
@@ -114,7 +131,9 @@ class LoginScreen extends StatelessWidget {
                     color: Colors.pink,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Center(
+                  child: _isLoading ? const CircularProgressIndicator(
+                    color: Colors.white,
+                  ): const Center(
                     child: Text(
                       'Log In',
                       style: TextStyle(
