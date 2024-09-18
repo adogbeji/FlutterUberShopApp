@@ -47,3 +47,4 @@ lib/firebase_options.dart
 firebase.json
 android/app/google-services.json
 lib/utils/api_keys
+android/app/src/main/AndroidManifest.xml
