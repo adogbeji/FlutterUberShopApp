@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'package:uber_shop_app/controllers/auth_controller.dart';
 import 'package:uber_shop_app/views/screens/auth/register_screen.dart';
+import 'package:uber_shop_app/views/screens/map_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -38,6 +39,8 @@ class _LoginScreenState extends State<LoginScreen> {
         setState(() {
           _isLoading = false;  // Stops loading spinner
         });
+
+        Get.to(const MapScreen());
         Get.snackbar(
           'Login Success', 
           'You are now logged in!', 
