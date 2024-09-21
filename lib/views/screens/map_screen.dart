@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -9,10 +11,16 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
+  final Completer<GoogleMapController> _controller = Completer<GoogleMapController>();
+
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      // body: GoogleMap(initialCameraPosition: initialCameraPosition)
+      body: GoogleMap(
+        mapType: MapType.normal,
+        // initialCameraPosition: ,        
+      ),
     );
   }
 }
