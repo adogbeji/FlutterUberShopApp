@@ -13,13 +13,18 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   final Completer<GoogleMapController> _controller = Completer<GoogleMapController>();
 
+  static const CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
+  );  // The location we're trying to access
+
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: GoogleMap(
         mapType: MapType.normal,
-        // initialCameraPosition: ,        
+        initialCameraPosition: _kGooglePlex,        
       ),
     );
   }
