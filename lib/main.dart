@@ -6,6 +6,7 @@ import 'firebase_options.dart';
 
 import 'package:uber_shop_app/views/screens/auth/login_screen.dart';
 import 'package:uber_shop_app/views/screens/auth/register_screen.dart';
+import 'package:uber_shop_app/views/screens/map_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Ensures all Flutter widgets have been successfully initialised
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: RegisterScreen(),
+      // home: RegisterScreen(),
+      home: const MapScreen(),
     );
   }
 }

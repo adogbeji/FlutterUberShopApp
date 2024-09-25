@@ -21,10 +21,13 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: GoogleMap(
         mapType: MapType.normal,
-        initialCameraPosition: _kGooglePlex,        
+        initialCameraPosition: _kGooglePlex,
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+        },        
       ),
     );
   }
