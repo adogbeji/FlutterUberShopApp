@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapScreen extends StatefulWidget {
@@ -30,6 +31,22 @@ class _MapScreenState extends State<MapScreen> {
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
             },        
+          ),
+
+          Positioned(
+            bottom: 0,
+            child: Container(
+              height: 150,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: OutlinedButton(
+                onPressed: () {},
+                child: const Text('SHOP NOW'),
+              ),
+            ),
           ),
         ],
       ),
