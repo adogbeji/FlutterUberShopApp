@@ -42,9 +42,17 @@ class _MapScreenState extends State<MapScreen> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: OutlinedButton(
-                onPressed: () {},
-                child: const Text('SHOP NOW'),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width - 70,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('SHOP NOW'),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
