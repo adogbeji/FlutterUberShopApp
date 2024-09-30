@@ -47,9 +47,13 @@ class _MapScreenState extends State<MapScreen> {
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width - 70,
-                    child: ElevatedButton(
+                    child: ElevatedButton.icon(
                       onPressed: () {},
-                      child: const Text('SHOP NOW'),
+                      icon: const Icon(Icons.shopping_cart),
+                      label: const Text('SHOP NOW', style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 4,
+                      ),),
                     ),
                   ),
                 ],
