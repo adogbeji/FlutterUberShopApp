@@ -19,6 +19,8 @@ class _MapScreenState extends State<MapScreen> {
     zoom: 14.4746,
   );  // The location we're trying to access
 
+  getUserCurrentLocation() async {}
+
 
   @override
   Widget build(BuildContext context) {
