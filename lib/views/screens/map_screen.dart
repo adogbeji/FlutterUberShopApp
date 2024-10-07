@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapScreen extends StatefulWidget {
@@ -19,7 +21,13 @@ class _MapScreenState extends State<MapScreen> {
     zoom: 14.4746,
   );  // The location we're trying to access
 
-  getUserCurrentLocation() async {}
+  getUserCurrentLocation() async {
+    await Geolocator.checkPermission();  // Checks if user has given permission to acces their current location
+
+    await Geolocator.requestPermission();  // Sends user request to allow us access their location
+
+    await Geolocator.getCurrentPosition();  // Gets the user's current location
+  }
 
 
   @override
