@@ -21,14 +21,21 @@ class _MapScreenState extends State<MapScreen> {
     zoom: 14.4746,
   );  // The location we're trying to access
 
+  late Position currentPosition;  // Stores position variable (below)
+
   getUserCurrentLocation() async {
     await Geolocator.checkPermission();  // Checks if user has given permission to acces their current location
 
     await Geolocator.requestPermission();  // Sends user request to allow us access their location
 
-    await Geolocator.getCurrentPosition();  // Gets the user's current location
-  }
+    Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.bestForNavigation,
+      forceAndroidLocationManager: true,
+    ); // Stores the user's current location
+    currentPosition = position;
 
+    LatLng pos = LatLng(position.latitude, position.longitude);  // Stores user's latitude & longitude
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +48,8 @@ class _MapScreenState extends State<MapScreen> {
             initialCameraPosition: _kGooglePlex,
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
-            },        
+            },
           ),
-
           Positioned(
             bottom: 0,
             child: Container(
@@ -61,10 +67,13 @@ class _MapScreenState extends State<MapScreen> {
                     child: ElevatedButton.icon(
                       onPressed: () {},
                       icon: const Icon(Icons.shopping_cart),
-                      label: const Text('SHOP NOW', style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 4,
-                      ),),
+                      label: const Text(
+                        'SHOP NOW',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 4,
+                        ),
+                      ),
                     ),
                   ),
                 ],
