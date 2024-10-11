@@ -35,6 +35,8 @@ class _MapScreenState extends State<MapScreen> {
     currentPosition = position;
 
     LatLng pos = LatLng(position.latitude, position.longitude);  // Stores user's latitude & longitude
+
+    CameraPosition cameraPosition = CameraPosition(target: pos, zoom: 16);
   }
 
   @override
