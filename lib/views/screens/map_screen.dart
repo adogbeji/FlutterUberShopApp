@@ -16,6 +16,8 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   final Completer<GoogleMapController> _controller = Completer<GoogleMapController>();
 
+  late GoogleMapController mapController;
+
   static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
     zoom: 14.4746,
@@ -37,6 +39,7 @@ class _MapScreenState extends State<MapScreen> {
     LatLng pos = LatLng(position.latitude, position.longitude);  // Stores user's latitude & longitude
 
     CameraPosition cameraPosition = CameraPosition(target: pos, zoom: 16);
+    mapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
   }
 
   @override
@@ -45,11 +48,15 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           GoogleMap(
+            myLocationButtonEnabled: true,
+            myLocationEnabled: true,
             padding: const EdgeInsets.only(bottom: 200),
             mapType: MapType.normal,
             initialCameraPosition: _kGooglePlex,
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
+
+              mapController = controller;
             },
           ),
           Positioned(
