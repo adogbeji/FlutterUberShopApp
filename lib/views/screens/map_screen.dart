@@ -57,6 +57,8 @@ class _MapScreenState extends State<MapScreen> {
               _controller.complete(controller);
 
               mapController = controller;
+
+              getUserCurrentLocation();
             },
           ),
           Positioned(
