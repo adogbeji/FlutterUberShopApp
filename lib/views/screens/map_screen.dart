@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:uber_shop_app/views/screens/home_screen.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -76,7 +78,9 @@ class _MapScreenState extends State<MapScreen> {
                   Container(
                     width: MediaQuery.of(context).size.width - 70,
                     child: ElevatedButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.offAll(const HomeScreen());
+                      },
                       icon: const Icon(Icons.shopping_cart),
                       label: const Text(
                         'SHOP NOW',
