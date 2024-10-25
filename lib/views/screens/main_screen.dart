@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,7 +14,17 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(icon: Image.asset('assets/icons/store-1.png'),),
+          BottomNavigationBarItem(
+            icon: Image.asset(
+              'assets/icons/store-1.png',
+              width: 20,
+            ),
+            label: 'HOME',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset('assets/icons/explore.svg'),
+            label: 'CATEGORIES',
+          ),
         ],
       ),
     );
