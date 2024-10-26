@@ -15,6 +15,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: pageIndex,
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(
