@@ -15,6 +15,12 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) {
+          setState(() {
+            pageIndex = value;
+          });
+        } ,
+        selectedItemColor: Colors.pink,
         currentIndex: pageIndex,
         items: [
           BottomNavigationBarItem(
