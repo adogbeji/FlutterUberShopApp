@@ -20,6 +20,7 @@ class _MainScreenState extends State<MainScreen> {
             pageIndex = value;
           });
         } ,
+        unselectedItemColor: Colors.black,
         selectedItemColor: Colors.pink,
         currentIndex: pageIndex,
         items: [
