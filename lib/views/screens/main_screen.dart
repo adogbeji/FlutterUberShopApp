@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'package:uber_shop_app/views/screens/home_screen.dart';
+import 'package:uber_shop_app/views/screens/category_screen.dart';
+import 'package:uber_shop_app/views/screens/cart_screen.dart';
+import 'package:uber_shop_app/views/screens/favourite_screen.dart';
+import 'package:uber_shop_app/views/screens/account_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -10,6 +17,14 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int pageIndex = 0;
+
+  List<Widget> _pages = [
+    const HomeScreen(),
+    const CategoryScreen(),
+    const CartScreen(),
+    const FavouriteScreen(),
+    const AccountScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +61,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
+      body: _pages[pageIndex],
     );
   }
 }
