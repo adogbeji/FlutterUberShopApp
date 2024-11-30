@@ -5,10 +5,10 @@ class LocationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Location Widget'),
-      ),
+    return Row(
+      children: [
+        Image.asset('assets/icons/store-1.png', width: 30,),
+      ],
     );
   }
 }
