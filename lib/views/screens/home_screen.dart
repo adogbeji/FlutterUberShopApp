@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uber_shop_app/views/screens/widgets/location_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,8 +11,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home Screen'),
+    return const Column(
+      children: [
+        LocationWidget(),
+      ],
     );
   }
 }
