@@ -5,10 +5,13 @@ class LocationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.asset('assets/icons/store-1.png', width: 30,),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+      child: Row(
+        children: [
+          Image.asset('assets/icons/store-1.png', width: 30,),
+        ],
+      ),
     );
   }
 }
