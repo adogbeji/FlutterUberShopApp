@@ -20,7 +20,14 @@ class LocationWidget extends StatelessWidget {
             'assets/icons/pickicon.png',
             width: 30,
           ),
-          Expanded(child: TextFormField(),),
+          Expanded(
+            child: SizedBox(
+              width: 300,
+              child: TextFormField(
+                decoration: InputDecoration(),
+              ),
+            ),
+          ),
         ],
       ),
     );
