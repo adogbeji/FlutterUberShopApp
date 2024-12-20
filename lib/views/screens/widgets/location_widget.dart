@@ -27,7 +27,8 @@ class LocationWidget extends StatelessWidget {
             child: SizedBox(
               width: 300,
               child: TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
+                  fillColor: Colors.white,
                   labelText: 'Current Location',
                   hintText: 'Current Location',
                 ),
