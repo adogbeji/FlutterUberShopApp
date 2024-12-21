@@ -29,8 +29,10 @@ class LocationWidget extends StatelessWidget {
               child: TextFormField(
                 decoration: const InputDecoration(
                   fillColor: Colors.white,
+                  filled: true,
                   labelText: 'Current Location',
                   hintText: 'Current Location',
+                  border: InputBorder.none,
                 ),
               ),
             ),
